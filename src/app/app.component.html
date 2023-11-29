@@ -1,0 +1,43 @@
+
+<h1>Kendo Tree View</h1>
+
+<kendo-treeview #treeview 
+[nodes]="parsedData" 
+textField="text"
+kendoTreeViewExpandable 
+[filterable]="true"
+(filterChange)="handleFilter($event)"      
+[children]="loadChildren"
+[hasChildren]="hasChildren"
+[filterable] = true
+class="tabcontentExplorer" idField ="id" parentIdField="parentid"
+>
+<ng-template kendoTreeViewNodeTemplate let-dataItem> 
+  <!-- <span [ngClass]="dataItem.isinactive  ?  'explorertextinactive':'explorertext'">
+    <span [ngClass]="iconClass(dataItem.typeid,dataItem.detailc)"></span>
+<span [ngClass]="iconMoreInfoClass(dataItem.icon)"></span>  -->
+ {{ dataItem.typeid == 6 ? dataItem.text.split('||')[0] : dataItem.text }}
+<!-- </span> -->
+  <!-- <button kendoButton *ngIf="dataItem.typeid == 7" (click)="loadMore(dataItem)">Load More</button> -->
+</ng-template>
+</kendo-treeview>
+
+<!-- <kendo-treeview #treeview 
+[nodes]="parsedData" 
+textField="text"
+kendoTreeViewFlatDataBinding
+kendoTreeViewExpandable 
+[filterable] = true
+class="tabcontentExplorer" idField ="id" parentIdField="parentid"
+>
+<ng-template kendoTreeViewNodeTemplate let-dataItem> 
+  <!-- <span [ngClass]="dataItem.isinactive  ?  'explorertextinactive':'explorertext'">
+    <span [ngClass]="iconClass(dataItem.typeid,dataItem.detailc)"></span>
+<span [ngClass]="iconMoreInfoClass(dataItem.icon)"></span>  
+ {{ dataItem.typeid == 6 ? dataItem.text.split('||')[0] : dataItem.text }}
+<!-- </span>
+  <!-- <button kendoButton *ngIf="dataItem.typeid == 7" (click)="loadMore(dataItem)">Load More</button> 
+</ng-template>
+</kendo-treeview> -->
+
+
